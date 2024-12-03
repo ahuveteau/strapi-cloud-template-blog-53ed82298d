@@ -580,6 +580,29 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
 }
 
+
+export interface ApiFacilityFacility extends Struct.CollectionTypeSchema {
+  collectionName: 'facilities';
+  info: {
+    singularName: 'facility';
+    pluralName: 'facilities';
+    displayName: 'Facility';
+    description: 'Definie facilities';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+    email: Schema.Attribute.String;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
